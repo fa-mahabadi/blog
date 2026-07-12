@@ -1,10 +1,11 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import redirect, render,get_object_or_404
 from django.http import Http404
 from .models import Post
 from django.core.paginator import EmptyPage, Paginator,PageNotAnInteger
 from django.core.mail import send_mail
 from django.views.generic import ListView
-from .forms import EmailPostForm
+from django.views.decorators.http import require_POST
+from .forms import EmailPostForm,CommentForm
 
 class PostListView(ListView):
     template_name='blog/post_list.html'
@@ -37,9 +38,21 @@ def post_share(request,post_id):
     return render(request,'blog/share.html',{'form':form,'post':post,'sent':sent})
         
 
-
-
-
+def post_detail(request,year,month,day,post):
+    post=get_object_or_404(Post,status=Post.Status.PUBLISH,publish__year=year,publish__month=month,publish__day=day,slug=post)
+    comments=post.comments.filter(active=True)
+    
+    if request.method=="POST":
+        form=CommentForm(request.POST)
+        if form.is_valid():
+            comment=form.save(commit=False)
+            comment.post=post
+            comment.save()
+            return redirect(post.get_absolute_url())
+    else:
+        form=CommentForm()
+    return render(request,'blog/post_detail.html',{'post':post,'comments':comments,'form':form})
+    return render(request,'blog/post_detail.html',{'post':post,'comments':comments,'form':form})
 
 
 def post_list(request):
@@ -55,7 +68,3 @@ def post_list(request):
         posts=paginator.page(paginator.num_pages)
 
     return render(request,'blog/post_list.html',{'posts':posts})
-
-def post_detail(request,year,month,day,post):
-    post=get_object_or_404(Post,status=Post.Status.PUBLISH,publish__year=year,publish__month=month,publish__day=day,slug=post)
-    return render(request,'blog/post_detail.html',{'post':post})
