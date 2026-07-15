@@ -7,6 +7,7 @@ from django.views.generic import ListView
 from django.views.decorators.http import require_POST
 from .forms import EmailPostForm,CommentForm
 from taggit.models import Tag
+from django.db.models import Count
 
 class PostListView(ListView):
     template_name='blog/post_list.html'
@@ -42,7 +43,9 @@ def post_share(request,post_id):
 def post_detail(request,year,month,day,post):
     post=get_object_or_404(Post,status=Post.Status.PUBLISH,publish__year=year,publish__month=month,publish__day=day,slug=post)
     comments=post.comments.filter(active=True)
-    
+    post_tags_ids=post.tags.values_list('id',flat=True)
+    similar_posts=Post.published.filter(tags__in=post_tags_ids).exclude(id=post.id)
+    similar_posts=similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags','-publish')[:2]
     if request.method=="POST":
         form=CommentForm(request.POST)
         if form.is_valid():
@@ -52,11 +55,11 @@ def post_detail(request,year,month,day,post):
             return redirect(post.get_absolute_url())
     else:
         form=CommentForm()
-    return render(request,'blog/post_detail.html',{'post':post,'comments':comments,'form':form})
+    return render(request,'blog/post_detail.html',{'post':post,'comments':comments,'form':form,'similar_posts':similar_posts})
 
 
 def post_list(request,tag_slug=None):
-    post_list=Post.objects.all()
+    post_list=Post.published.all()
     tag=None
     if tag_slug:
         tag=get_object_or_404(Tag,slug=tag_slug)
