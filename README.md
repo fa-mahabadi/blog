@@ -14,7 +14,7 @@
 
 ## ⚙️ نحوه نصب
 1. ابتدا مخزن را کلون کنید:
-   `git clone https://github.com/user/blog.git`
+   `https://github.com/fa-mahabadi/blog.git`
 2. محیط مجازی را فعال کنید.
 3. کتابخانه‌ها را نصب کنید:
    `pip install -r requirements.txt`
