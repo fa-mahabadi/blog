@@ -9,11 +9,11 @@ from .forms import EmailPostForm,CommentForm
 from taggit.models import Tag
 from django.db.models import Count
 
-class PostListView(ListView):
-    template_name='blog/post_list.html'
-    context_object_name='posts'
-    queryset=Post.published.all()
-    paginate_by=3
+# class PostListView(ListView):
+#     template_name='blog/post_list.html'
+#     context_object_name='posts'
+#     queryset=Post.published.all()
+#     paginate_by=3
 
 
 def post_share(request,post_id):
@@ -62,7 +62,7 @@ def post_list(request,tag_slug=None):
     post_list=Post.published.all()
     tag=None
     if tag_slug:
-        tag=get_object_or_404(Tag,slug=tag_slug)
+        tag=Tag.objects.filter(slug=tag_slug).first()
         post_list=post_list.filter(tags__in=[tag])
     paginator=Paginator(post_list,3)
     page_number=request.GET.get('page',1)
