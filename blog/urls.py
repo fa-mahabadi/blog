@@ -1,4 +1,4 @@
-from .views import post_list, post_detail, post_share
+from .views import post_list, post_detail, post_share,post_search
 from django.urls import path
 from blog.feeds import LastestPostFeed
 
@@ -13,5 +13,6 @@ urlpatterns = [
     ),
     path("<int:post_id>/share_post/", post_share, name="post_share"),
     path("feed/", LastestPostFeed(), name="post_feed"),
+    path("search/",post_search,name="post_search"),
 
 ]
