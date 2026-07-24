@@ -1,20 +1,61 @@
-# 📝 My Django Blog Project
 
-این پروژه یک وبلاگ ساده است که با **Django** ساخته شده است.
+# 📝 Django Blog Pro
 
-## 🚀 ویژگی‌ها
+A robust, feature-rich blogging engine built with Django and powered by PostgreSQL. This project implements advanced web features including full-text search, automated sitemaps, and a recommendation engine.
 
-- [x] سیستم تگ‌گذاری (Tags)
-- [ ] سیستم کامنت (در حال توسعه...)
+## 🚀 Features
 
-## 🛠 تکنولوژی‌های استفاده شده
-* Python
-* Django
-* SQLite
+[x] Advanced Search: Full-text search engine powered by PostgreSQL (using Trigram similarity).
+[x] Content Organization: Comprehensive Tagging and Categorization system.
+[x] User Engagement: Interactive Comment system and Email notifications via Django.
+[x] Smart Discovery: “Similar Posts” recommendation engine based on content similarity.
+[x] SEO Ready: Integrated Sitemap and RSS feed support.
+[x] Enhanced UX: Pagination and custom Template Tags/Filters for reusable UI logic.
 
-## ⚙️ نحوه نصب
-1. ابتدا مخزن را کلون کنید:
-   `https://github.com/fa-mahabadi/blog.git`
-2. محیط مجازی را فعال کنید.
-3. کتابخانه‌ها را نصب کنید:
-   `pip install -r requirements.txt`
+## 🛠 Tech Stack
+
+* Backend: Python & Django
+* Database: PostgreSQL (Primary) / SQLite (Development)
+* Search Engine: PostgreSQL pg_trgm extension for fuzzy matching.
+* Deployment Ready: Docker & Docker Compose support.
+
+## ⚙️ Getting Started
+
+1. Prerequisites
+Ensure you have the following installed:
+
+Python 3.10+
+PostgreSQL (or use the provided Docker configuration)
+pip (Python package manager)
+Installation & Setup
+
+2. Clone the repository:
+bash
+    `git clone https://github.com/fa-mahabadi/blog.git`
+    cd blog
+3. Create and activate a virtual environment:
+bash
+    # On Windows
+    `python -m venv venv`
+    `venv\Scripts\activate`
+
+    # On macOS/Linux
+    `python3 -m venv venv`
+    `source venv/bin/activate`
+
+4. Install dependencies:
+bash
+    `pip install -r requirements.txt`
+
+5. Database Setup:
+If you are using PostgreSQL locally, update your settings.py. If using Docker, simply run:
+
+bash
+    `docker-compose up -d`
+6. Run Migrations:
+bash
+    `python manage.py migrate`
+7. Start the development server:
+bash
+    `python manage.py runserver`
+8. Visit `http://127.0.0.1:8000/` to see your blog in action!
