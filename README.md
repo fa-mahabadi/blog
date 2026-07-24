@@ -6,17 +6,25 @@ A robust, feature-rich blogging engine built with Django and powered by PostgreS
 ## 🚀 Features
 
 [x] Advanced Search: Full-text search engine powered by PostgreSQL (using Trigram similarity).
+
 [x] Content Organization: Comprehensive Tagging and Categorization system.
+
 [x] User Engagement: Interactive Comment system and Email notifications via Django.
+
 [x] Smart Discovery: “Similar Posts” recommendation engine based on content similarity.
+
 [x] SEO Ready: Integrated Sitemap and RSS feed support.
+
 [x] Enhanced UX: Pagination and custom Template Tags/Filters for reusable UI logic.
 
 ## 🛠 Tech Stack
 
 * Backend: Python & Django
+
 * Database: PostgreSQL (Primary) / SQLite (Development)
+
 * Search Engine: PostgreSQL pg_trgm extension for fuzzy matching.
+
 * Deployment Ready: Docker & Docker Compose support.
 
 ## ⚙️ Getting Started
@@ -60,5 +68,5 @@ bash
 7. Start the development server:
 bash
     `python manage.py runserver`
-    
+
 8. Visit `http://127.0.0.1:8000/` to see your blog in action!
