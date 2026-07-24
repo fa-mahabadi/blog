@@ -29,22 +29,22 @@ A robust, feature-rich blogging engine built with Django and powered by PostgreS
 
 ## ⚙️ Getting Started
 
-1. Prerequisites
+#### Prerequisites
 Ensure you have the following installed:
 
-Python 3.10+
+* Python 3.10+
 
-PostgreSQL (or use the provided Docker configuration)
+* PostgreSQL (or use the provided Docker configuration)
 
-pip (Python package manager)
+* pip (Python package manager)
 
-Installation & Setup
+#### Installation & Setup
 
-2. Clone the repository:
+1. Clone the repository:
 bash
     `git clone https://github.com/fa-mahabadi/blog.git`
     cd blog
-3. Create and activate a virtual environment:
+2. Create and activate a virtual environment:
 bash
     # On Windows
     `python -m venv venv`
@@ -54,22 +54,22 @@ bash
     `python3 -m venv venv`
     `source venv/bin/activate`
 
-4. Install dependencies:
+3. Install dependencies:
 bash
     `pip install -r requirements.txt`
 
-5. Database Setup:
+4. Database Setup:
 If you are using PostgreSQL locally, update your settings.py. If using Docker, simply run:
 
 bash
     `docker-compose up -d`
 
-6. Run Migrations:
+5. Run Migrations:
 bash
     `python manage.py migrate`
 
-7. Start the development server:
+6. Start the development server:
 bash
     `python manage.py runserver`
 
-8. Visit `http://127.0.0.1:8000/` to see your blog in action!
+7. Visit `http://127.0.0.1:8000/` to see your blog in action!
