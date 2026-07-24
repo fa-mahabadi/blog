@@ -45,31 +45,32 @@ bash
     `git clone https://github.com/fa-mahabadi/blog.git`
     cd blog
 2. Create and activate a virtual environment:
-bash
-    # On Windows
+
+    ### On Windows
     `python -m venv venv`
+
     `venv\Scripts\activate`
 
-    # On macOS/Linux
+    ### On macOS/Linux
     `python3 -m venv venv`
+
     `source venv/bin/activate`
 
 3. Install dependencies:
-bash
+
     `pip install -r requirements.txt`
 
 4. Database Setup:
 If you are using PostgreSQL locally, update your settings.py. If using Docker, simply run:
 
-bash
     `docker-compose up -d`
 
 5. Run Migrations:
-bash
+
     `python manage.py migrate`
 
 6. Start the development server:
-bash
+
     `python manage.py runserver`
 
 7. Visit `http://127.0.0.1:8000/` to see your blog in action!
