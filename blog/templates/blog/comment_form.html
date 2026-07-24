@@ -1,0 +1,7 @@
+
+<h1>Add a new comment</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="send comment">
+</form>

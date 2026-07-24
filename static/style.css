@@ -1,7 +1,14 @@
-h1{
+h1 {
     padding: 20px;
 
 }
-#sidebar{
+
+h3 {
+    background-color: lightgrey;
+    padding: 10px;
+    margin: 10px;
+}
+
+#sidebar {
     background-color: lightsteelblue;
 }

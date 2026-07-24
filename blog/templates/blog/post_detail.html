@@ -1,9 +1,33 @@
 {% extends 'base.html' %}
+{% load blog_tags %}
 {% block title %}Post List {% endblock %}
 {% block content %}
 <h1>{{post.title}} </h1>
 <hr>
 <p class="date">Publish {{post.publish}} by {{post.author}}</p>
-{{ post.body|linebreaks }}
+{{ post.body|markdown}}
 <a href="{% url 'blog:post_share' post.id %}"> Share post</a>
+<h3>Similar posts:</h3>
+{% for post in similar_posts %}
+<p>
+    <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+</p>
+{% empty %}
+<p>There are no similar post yet</p>
+{% endfor %}
+{% with comments.count as total_comments %}
+<h3>{{total_comments}} comment{{total_comments|pluralize}}</h3>
+{% endwith %}
+{% for comment in comments %}
+<div class="comment">
+    <p class="info">
+        Comment {{forloop.counter}} by {{comment.name}}
+        {{comment.created}}
+    </p>
+    {{comment.body|linebreaks}}
+</div>
+{% empty %}
+<p>There are not comment.</p>
+{% endfor %}
+{% include 'blog/comment_form.html' %}
 {% endblock %}
