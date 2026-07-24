@@ -5,17 +5,17 @@ A robust, feature-rich blogging engine built with Django and powered by PostgreS
 
 ## 🚀 Features
 
-[x] Advanced Search: Full-text search engine powered by PostgreSQL (using Trigram similarity).
+- [x] Advanced Search: Full-text search engine powered by PostgreSQL (using Trigram similarity).
 
-[x] Content Organization: Comprehensive Tagging and Categorization system.
+- [x] Content Organization: Comprehensive Tagging and Categorization system.
 
-[x] User Engagement: Interactive Comment system and Email notifications via Django.
+- [x] User Engagement: Interactive Comment system and Email notifications via Django.
 
-[x] Smart Discovery: “Similar Posts” recommendation engine based on content similarity.
+- [x] Smart Discovery: “Similar Posts” recommendation engine based on content similarity.
 
-[x] SEO Ready: Integrated Sitemap and RSS feed support.
+- [x] SEO Ready: Integrated Sitemap and RSS feed support.
 
-[x] Enhanced UX: Pagination and custom Template Tags/Filters for reusable UI logic.
+- [x] Enhanced UX: Pagination and custom Template Tags/Filters for reusable UI logic.
 
 ## 🛠 Tech Stack
 
@@ -33,8 +33,11 @@ A robust, feature-rich blogging engine built with Django and powered by PostgreS
 Ensure you have the following installed:
 
 Python 3.10+
+
 PostgreSQL (or use the provided Docker configuration)
+
 pip (Python package manager)
+
 Installation & Setup
 
 2. Clone the repository:
