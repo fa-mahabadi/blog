@@ -52,10 +52,13 @@ If you are using PostgreSQL locally, update your settings.py. If using Docker, s
 
 bash
     `docker-compose up -d`
+
 6. Run Migrations:
 bash
     `python manage.py migrate`
+
 7. Start the development server:
 bash
     `python manage.py runserver`
+    
 8. Visit `http://127.0.0.1:8000/` to see your blog in action!
